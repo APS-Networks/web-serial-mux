@@ -35,15 +35,17 @@
 			],
 			"problemMatcher": [],
 			"dependsOn":[ 
-				"CMake: build wspasswd"
+				"CMake: Debug Dependencies"
 			]
 		},
 		{
-			"label": "CMake: certificates",
+			"label": "CMake: Debug Dependencies",
 			"type": "cmake",
 			"command": "build",
 			"targets": [
-				"cert_create"
+				"wspasswd",
+				"cert_create",
+				"npm_build"
 			],
 			"problemMatcher": []
 		},
@@ -51,7 +53,6 @@
 			"label": "Passfile & Build Main",
 			"dependsOn":[ 
 				"Create passfile",
-				"CMake: certificates",
 				"CMake: build main"
 			]
 		}

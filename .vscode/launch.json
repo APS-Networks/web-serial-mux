@@ -8,7 +8,7 @@
             "name": "(gdb) Web Serial",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/webserial_main",
+            "program": "${workspaceFolder}/build/bin/webserial",
             "args": [
                 "--cert-path", "${workspaceFolder}/scripts/serial.apsn.local.crt",
                 "--key-path",  "${workspaceFolder}/scripts/serial.apsn.local.key.pem",

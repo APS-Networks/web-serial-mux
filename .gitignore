@@ -4,3 +4,5 @@ build
 *.csr
 *.ini
 site/dist/assets/bundle
+passwd.txt
+.venv
