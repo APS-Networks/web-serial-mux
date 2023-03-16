@@ -1,0 +1,87 @@
+Index: daniellecli-src/include/cli/cli.h
+===================================================================
+--- daniellecli-src.orig/include/cli/cli.h
++++ daniellecli-src/include/cli/cli.h
+@@ -76,6 +76,12 @@ namespace cli
+     class Menu;
+     class CliSession;
+ 
++    class SessionBase
++    {
++    public:
++        virtual void Current(Menu* menu) = 0;
++        virtual std::ostream& OutStream() = 0;
++    };
+ 
+     class Cli
+     {
+@@ -176,8 +182,8 @@ namespace cli
+             return s;
+         }
+ 
+-    private:
+-        friend class CliSession;
++    // private:
++    //    friend class CliSession;
+ 
+         Menu* RootMenu() { return rootMenu.get(); }
+ 
+@@ -232,7 +238,7 @@ namespace cli
+ 
+         virtual void Enable() { enabled = true; }
+         virtual void Disable() { enabled = false; }
+-        virtual bool Exec(const std::vector<std::string>& cmdLine, CliSession& session) = 0;
++        virtual bool Exec(const std::vector<std::string>& cmdLine, SessionBase& session) = 0;
+         virtual void Help(std::ostream& out) const = 0;
+         // Returns the collection of completions relatives to this command.
+         // For simple commands, provides a base implementation that use the name of the command
+@@ -276,7 +282,7 @@ namespace cli
+ 
+     // ********************************************************************
+ 
+-    class CliSession
++    class CliSession : public SessionBase
+     {
+     public:
+         CliSession(Cli& _cli, std::ostream& _out, std::size_t historySize = 100);
+@@ -442,7 +448,7 @@ namespace cli
+             return c;
+         }
+ 
+-        bool Exec(const std::vector<std::string>& cmdLine, CliSession& session) override
++        bool Exec(const std::vector<std::string>& cmdLine, SessionBase& session) override
+         {
+             if (!IsEnabled())
+                 return false;
+@@ -625,7 +631,7 @@ namespace cli
+         {
+         }
+ 
+-        bool Exec(const std::vector< std::string >& cmdLine, CliSession& session) override
++        bool Exec(const std::vector< std::string >& cmdLine, SessionBase& session) override
+         {
+             if (!IsEnabled()) return false;
+             const std::size_t paramSize = sizeof...(Args);
+@@ -683,7 +689,7 @@ namespace cli
+         {
+         }
+ 
+-        bool Exec(const std::vector< std::string >& cmdLine, CliSession& session) override
++        bool Exec(const std::vector< std::string >& cmdLine, SessionBase& session) override
+         {
+             if (!IsEnabled()) return false;
+             assert(!cmdLine.empty());
+
+Index: daniellecli-src/include/cli/cli.h
+===================================================================
+--- daniellecli-src.orig/include/cli/cli.h
++++ daniellecli-src/include/cli/cli.h
+@@ -470,7 +470,7 @@ namespace cli
+             return false;
+         }
+ 
+-        bool ScanCmds(const std::vector<std::string>& cmdLine, CliSession& session)
++        bool ScanCmds(const std::vector<std::string>& cmdLine, SessionBase& session)
+         {
+             if (!IsEnabled())
+                 return false;

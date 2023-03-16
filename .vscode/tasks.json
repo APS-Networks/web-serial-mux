@@ -1,0 +1,59 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake: build main",
+			"command": "build",
+			"targets": [
+				"webserial_main"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task",
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: build wspasswd",
+			"command": "build",
+			"targets": [
+				"wspasswd"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task",
+		},
+		{
+			"label": "Create passfile",
+			"type": "shell",
+			"command": [
+				"${workspaceFolder}/build/bin/wspasswd",
+				"--realm", "webserial",
+				"--user",  "admin",
+				"--pass",  "pass",
+				"--out",   "${workspaceFolder}/passwd.txt"
+			],
+			"problemMatcher": [],
+			"dependsOn":[ 
+				"CMake: build wspasswd"
+			]
+		},
+		{
+			"label": "CMake: certificates",
+			"type": "cmake",
+			"command": "build",
+			"targets": [
+				"cert_create"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Passfile & Build Main",
+			"dependsOn":[ 
+				"Create passfile",
+				"CMake: certificates",
+				"CMake: build main"
+			]
+		}
+	]
+}

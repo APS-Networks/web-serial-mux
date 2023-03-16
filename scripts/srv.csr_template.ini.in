@@ -1,0 +1,23 @@
+[req]
+default_bits       = 2048
+distinguished_name = req_distinguished_name
+req_extensions    = v3_req
+prompt             = no
+
+[req_distinguished_name]
+countryName                = {{ country }}
+stateOrProvinceName        = {{ state }}
+localityName               = {{ locality }}
+organizationName           = {{ org }}
+commonName                 = {{ common_name }}
+
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature, keyAgreement, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+{% if alt is defined %}
+subjectAltName = @alt_names
+
+[alt_names]{% for a in alt %}
+DNS.{{ loop.index }}   = {{ a }}{% endfor %}
+{% endif %}

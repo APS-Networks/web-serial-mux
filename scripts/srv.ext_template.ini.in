@@ -1,0 +1,9 @@
+basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature, keyAgreement, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+{% if alt is defined %}
+subjectAltName = @alt_names
+
+[alt_names]{% for a in alt %}
+DNS.{{ loop.index }}   = {{ a }}{% endfor %}
+{% endif %}

@@ -1,0 +1,66 @@
+/*  This prevents the content background going all green when the page 
+    viewport width is less than 1100px. */
+.wy-nav-content {
+    background: rgb(252,252,252);
+}
+
+.wy-side-nav-search a {
+    color: rgb(252,252,252);
+}
+
+/* Make the title more obvious when the page is collapsed */
+@media (max-width: 1100px) {
+    .wy-nav-top a {
+        color: rgb(252,252,252);
+        font-size: 1.2em;
+    }
+}
+
+dl.function {
+    margin-top: 30px;
+}
+
+dl.class {
+    margin-top: 50px;
+}
+
+dl.enum-class {
+    margin-top: 50px;
+}
+
+/*
+    green: #009568
+*/
+/* keyword */
+.k {
+    /* color: rgb(224, 127, 0) */
+}
+
+/* punctuation */
+.p {
+    /* color: #f00; */
+}
+
+/* .n > .pre {
+    color: #050;
+} */
+
+/* span.k > span.pre {
+    color: #909; 
+}
+
+span.kt > span.pre {
+    color: #077; 
+}
+
+.sig-param {
+    color: #f00;
+} */
+
+/* span.n > span.pre {
+    color: #990; 
+} */
+/* namespace */
+.n {
+    /* color: rgb(0, 189, 63) */
+}

@@ -1,0 +1,23 @@
+{
+    "ca": {
+        "country": "GB",
+        "state": "London",
+        "locality": "London",
+        "org": "APS",
+        "common_name": "apsn.local",
+        "v3_ca": true,
+        "alt": [
+            "ca.apsn.com"
+        ]
+    },
+    "server": {
+        "country": "GB",
+        "state": "London",
+        "locality": "London",
+        "org": "APS",
+        "common_name": "serial.apsn.local",
+        "alt": [
+            "localhost"
+        ]
+    }
+}

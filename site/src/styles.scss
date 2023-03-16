@@ -1,0 +1,163 @@
+@import 'variables.scss';
+@import 'terminal.scss';
+
+@import 'xterm-css';
+
+body {
+    // background-color: aliceblue;
+    margin: 0px;
+    font-family: "Exo";
+    // background: url('assets/mesh-1430108.svg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: $aps_green;
+}
+
+@font-face {
+    font-family: "Ubuntu Mono";
+    src: url("/assets/fonts/UbuntuMono-Regular.ttf");
+} 
+
+
+@font-face {
+    font-family: "Exo 2";
+    src: url("/assets/fonts/Exo2-VariableFont_wght.ttf");
+} 
+
+ #page-header {
+    height: 80px;
+ }
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+#body-header-container {
+    background-color: #fff;
+    margin-bottom: 20px;
+    // border: 1px solid red;
+}
+#body-header {
+    overflow: auto;
+    margin: 0px auto;
+    width: 750px;
+    // padding: 20px 10px;
+}
+
+
+
+
+
+
+#body-header-container img {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+#body-header-container h1 {
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Exo 2";
+    font-weight: 300;
+    color: #333;
+    vertical-align: middle;
+}
+
+#body-header-container h1 .em {
+    font-weight: bold;
+}
+
+#body-container {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#body-container #body {
+    margin: 0px auto;
+}
+
+#body h1 {
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+#body-footer-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    left: 0; 
+    bottom: 0;
+    width: 100%;
+    background-color: #007455;
+    color: white;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 0.8em;
+    row-gap: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#github-mark {
+    width: 24px;
+    margin-right: 5px;
+}
+
+// .body-footer {
+// }
+
+.center {
+    margin: 0px auto;
+}
+
+.valign-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// .valign-items * {
+    
+// }
+
+#body-footer-container a {
+    color: #fff !important;
+}
+
+
+
+
+.filler {
+    flex-grow: 1;
+    // border: 1px solid green;
+}
+
+.footer-button {
+    border: 0px;
+    // background-color: #0f0;
+}
+
+.footer-button:hover {
+    border: 0px;
+    background-color: $aps_orange;
+}
+
+
+.control-group-text {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+

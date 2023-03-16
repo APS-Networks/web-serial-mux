@@ -1,0 +1,43 @@
+@font-face {
+    font-family: exo2;
+    src: url(Exo2-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: oxygen-mono;
+    src: url(OxygenMono-Regular.ttf);
+}
+  
+
+html {
+    --primary-color: #1EA481;
+    --primary-dark-color: #0f6b52;
+    --primary-light-color: #5ccaad;
+    --font-family: exo2;
+    --side-nav-background: #444;
+    --side-nav-foreground: #eee;
+    --header-foreground: #eee;
+    --font-family-monospace: oxygen-mono;
+    --top-height: 160px;
+}
+
+span.title-company {
+    font-size: 0.8em;
+}
+
+span.title-product {
+    font-size: 0.8em;
+}
+
+span.title-project {
+    font-size: 1.2em;
+}
+
+html.dark-mode {
+    --primary-color: #f89263;
+    --primary-dark-color: #F47B42;
+    --primary-light-color: #fcccb6;
+    --font-family: exo2;
+    --font-family-monospace: oxygen-mono;
+    --top-height: 160px;
+}

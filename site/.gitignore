@@ -1,0 +1,18 @@
+# Cache files  
+.eslintcache
+.npm
+*.tsbuildinfo
+# Directories
+node_modules
+# Env files      # A good safeguard against accidentally publishing
+.env.           #  private information, including security keys
+.env.test
+# Logs
+*.log
+./logs
+./npm-debug.log*
+# Misc files
+.DS_Store
+dist/main.js
+dist/main.css
+dist/bundle.js

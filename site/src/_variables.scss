@@ -1,0 +1,27 @@
+/* Leading underscore in file name denotes a "private" file, i.e., it is not
+   compiled */
+$aps_green: #1ea481;
+$aps_orange: #f47b41;
+
+
+$windowColor: #222;
+$windowBorderColor: #444;
+$windowTitleColor: #ddd;
+$windowBorderRadius: 5px;
+$windowBorderWidth: 1px;
+$titleBorderRadius: $windowBorderRadius - $windowBorderWidth;
+
+
+$internalBorderWidth: 1px;
+$internalBorderColor: #444;
+$infoBackgroundColor: #777;
+$infoElemBackgroundColor: #f55;
+
+$groupTextForeground: #fff;
+$groupTextBackground: #222;
+$groupLabelForeground: #fff;
+$groupLabelBackground: #222;
+$groupButtonForeground: #fff;
+$groupButtonBackground: #222;
+$windowFooterForeground: #fff;
+$windowFooterBackground: #222;

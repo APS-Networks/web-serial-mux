@@ -1,0 +1,13 @@
+include(FetchContent)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(FETCHCONTENT_QUIET OFF)
+FetchContent_Declare(fmt SYSTEM
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_TAG 9.1.0
+    GIT_PROGRESS TRUE
+)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+FetchContent_MakeAvailable(fmt)
+set(CMAKE_POSITION_INDEPENDENT_CODE OFF)

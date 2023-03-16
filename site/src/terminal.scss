@@ -1,0 +1,160 @@
+.xterm {
+    scrollbar-gutter: auto;
+}
+
+.xterm {
+    padding: 10px;
+    padding-right: 25px;
+}
+
+.window {
+    border: $windowBorderWidth solid $windowBorderColor;
+    border-top-left-radius:  $windowBorderRadius;
+    border-top-right-radius: $windowBorderRadius;
+    border-bottom-left-radius:  $windowBorderRadius;
+    border-bottom-right-radius: $windowBorderRadius;
+    // box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    // box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+    //             rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+    //             rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+    //             rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+    //             rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    margin: 0px auto;
+}
+
+.window-title-bar {
+    // display: flex;
+    // justify-content: flex-end;
+    // padding-right: 10px;
+    // text-align: center;
+    position: relative;
+    color: $windowTitleColor;
+    background-color: $windowColor;
+    border-top-left-radius:  $titleBorderRadius;
+    border-top-right-radius: $titleBorderRadius;
+    border-bottom: $internalBorderWidth solid $internalBorderColor;
+}
+
+.window-title-bar a {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+#window-title {
+    margin: 0px auto;
+    text-align: center;
+}
+
+
+
+.window-decoration {
+    width: 24px;
+
+    /*  Make red-ish 
+        https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element
+    */
+    filter: invert(25%) 
+            sepia(47%)
+            saturate(3320%)
+            hue-rotate(343deg)
+            brightness(122%)
+            contrast(73%);
+
+    // float: right;
+    // display: inline-block;
+    // margin-left: auto;
+    // justify-content: flex-end;
+}
+
+.window-title-bar > h1 {
+    border-top-left-radius:  $titleBorderRadius;
+    border-top-right-radius: $titleBorderRadius;
+    font-size: 12pt;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    // text-shadow:  2px  2px 2px #000,
+    //               2px -2px 2px #000,
+    //              -2px  2px 2px #000,
+    //              -2px -2px 2px #000,
+    //               0px  3px 0px #000,
+    //               0px -3px 0px #000,
+    //               3px  0px 0px #000,
+    //              -3px -0px 0px #000;
+}
+
+
+.window-content {
+    position: relative;
+}
+
+#xterm-overlay {
+    /* display: block; */
+    display:none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.8);
+    z-index:999;
+    color: white;
+    font-weight: bold;
+    align-items:center;
+    justify-content:center;
+}
+
+.overlay-message {
+    text-align: center;
+}
+
+.overlay-main-message {
+    font-size: x-large;
+}
+.overlay-sub-message {
+    font-size: medium;
+}
+
+
+.window-info {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    background-color: $infoBackgroundColor;
+}
+
+.window-info > span {
+    font-family: "Ubuntu Mono";
+    background-color: $infoElemBackgroundColor;
+}
+
+.window-footer {
+    display: flex;
+    // flex-direction: row;
+    color: $windowFooterForeground;
+    background-color: $windowFooterBackground;
+    border-top: $internalBorderWidth solid $internalBorderColor;
+    border-bottom-left-radius:  $titleBorderRadius;
+    border-bottom-right-radius: $titleBorderRadius;
+    // padding: 5px;
+    line-height: 31px;
+}
+
+.control-group {
+    display: inline-block;
+    // height: 30px;
+    // border: 1px solid red;
+    margin-left: 5px;
+    margin-right: 5px;
+    vertical-align: middle;
+    // padding: 10px 0px;
+}
+
+.control-group > * {
+    vertical-align: middle;
+    display: inline-block;
+}

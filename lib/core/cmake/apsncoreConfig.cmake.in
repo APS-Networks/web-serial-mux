@@ -1,0 +1,13 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/apsncoreTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/ApplicationFixture.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/PackageSources.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/FindSphinx.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/Findpdflatex.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/Doxygen.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/Breathe.cmake")
+
+check_required_components(apsncore)
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR})
