@@ -48,6 +48,9 @@ further information.
 * A C++23 compatible compiler.
 * CMake 3.16 or higher
 
+Additionally, the user running the application will require access to serial
+ports, either by being a super-user, or being a member of the `dialout` group.
+
 Boost and other C++ dependencies are downloaded as a part of the build.
 
 
