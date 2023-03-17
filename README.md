@@ -94,7 +94,7 @@ drawbacks of this approach.
 
 
 
-The application that runs the server is called `webserial_main`, the options for
+The application that runs the server is called `webserial`, the options for
 which are as follows:
 
 | Argument      | Required | Default   | Description                                               |
@@ -115,7 +115,7 @@ which are as follows:
 Therefore, the minimal invocation is:
 
 ```bash
-./bin/webserial_main --pass-file ./passwd.txt --root ../site/dist
+./bin/webserial --pass-file ./passwd.txt --root ../site/dist
 ```
 
 This starts the server with no SSL and the default log level.
@@ -124,7 +124,7 @@ For adding SSL support, a certificate, private key and Diffie-Hellman
 parameters must be provided, for example:
 
 ```bash
-./bin/webserial_main \
+./bin/webserial \
       --cert-path ../scripts/serial.apsn.local.crt \
       --key-path  ../scripts/serial.apsn.local.key.pem \
       --dh-path   ../scripts/serial.apsn.local.dh.pem \
