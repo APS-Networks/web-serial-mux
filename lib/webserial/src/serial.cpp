@@ -149,26 +149,30 @@ auto smux::serial::scan() -> std::map<std::string, port_options>
 {
     auto result = std::map<std::string, port_options>{};
 
-    if (!fs::exists(serial_sysfs_base)) {
-        apsn::log::warn("sysfs base directory \"{}\" not found", serial_sysfs_base.string());
-        return result;
-    }
-
-    auto it = fs::directory_iterator{serial_sysfs_base};
+    auto it = fs::directory_iterator{"/dev"_path};
     for (auto & dirent : it) {
-        if (!fs::is_symlink(dirent)) {
+        if (!fs::is_character_file(dirent.path())) {
             continue;
         }
 
-        auto path = dirent.path().parent_path() / fs::read_symlink(dirent);
+        auto path = dirent.path();
+        auto filename_str = path.filename().string();
+
+        if (!(filename_str.starts_with("ttyUSB") || 
+              filename_str.starts_with("ttyACM")))
+        {
+            continue;
+        }
+
         auto device = fs::canonical(path);
-
-        apsn::log::debug("Checking {}", device.string());
-
-        auto fd = util::file_descriptor(device.c_str(), O_RDWR | O_NONBLOCK);
+        auto fd = util::file_descriptor(
+                device.c_str(), 
+                O_RDWR |
+                O_NONBLOCK);
         if (!fd) {
             continue;
         }
+
         auto term = ::termios{};
         auto rc = ::tcgetattr(fd, &term);
         if (rc != 0) {
