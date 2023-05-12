@@ -10,11 +10,13 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 
 include(ApplicationFixture)
 include(PackageSources)
-include(Doxygen)
 include(FindSphinx)
 include(Findpdflatex)
 
-add_subdirectory(docs)
+if (WEBSERIAL_BUILD_DOCS)
+    include(Doxygen)
+    add_subdirectory(docs)
+endif()
 add_subdirectory(src)
 add_subdirectory(test)
 

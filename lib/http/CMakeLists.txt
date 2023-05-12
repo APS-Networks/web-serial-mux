@@ -35,6 +35,7 @@ target_link_libraries(apsnhttp PUBLIC
     contrib::md5
 )
 
-
-add_subdirectory(docs)
+if (WEBSERIAL_BUILD_DOCS)
+    add_subdirectory(docs)
+endif()
 add_subdirectory(test)

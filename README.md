@@ -53,6 +53,7 @@ ports, either by being a super-user, or being a member of the `dialout` group.
 
 Boost and other C++ dependencies are downloaded as a part of the build.
 
+> Note: This will not compile on gcc-11; please use gcc-12 or later.
 
 
 ## Building

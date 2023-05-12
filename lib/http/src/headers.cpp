@@ -110,8 +110,8 @@ auto authorisation::parse(std::string_view value) -> apsn::result<authorisation>
 
     auto fields = value.substr(last);
 
-    for (auto const word : rg::split_view(fields, delim)) {
-        auto pair = std::string_view{word};
+    for (auto const word : fields | std::views::split(delim)) {
+        auto pair = std::string_view(word);
         auto split_pos = pair.find('=');
         if (split_pos == npos) {
             return error::invalid_message;
@@ -122,7 +122,8 @@ auto authorisation::parse(std::string_view value) -> apsn::result<authorisation>
         if (!key) {
             return key.error;
         }
-        auto value = std::string{pair.substr(val_start, pair.size() - val_start - 1)};
+        auto substr = pair.substr(val_start, pair.size() - val_start - 1);
+        auto value = std::string(substr);
         result[*key] = value;
     }
 
