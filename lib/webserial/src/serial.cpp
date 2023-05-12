@@ -150,6 +150,7 @@ auto smux::serial::scan() -> std::map<std::string, port_options>
     auto result = std::map<std::string, port_options>{};
 
     if (!fs::exists(serial_sysfs_base)) {
+        apsn::log::warn("sysfs base directory \"{}\" not found", serial_sysfs_base.string());
         return result;
     }
 
