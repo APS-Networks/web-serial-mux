@@ -10,7 +10,7 @@ ca_csr_template=${script_dir}/ca.csr_template.ini.in
 srv_csr_template=${script_dir}/srv.csr_template.ini.in
 srv_ext_template=${script_dir}/srv.ext_template.ini.in
 
-sudo apt-get install jq ca-certificates
+sudo apt-get install jq ca-certificates python3-venv
 python3 -m venv .venv
 . .venv/bin/activate
 

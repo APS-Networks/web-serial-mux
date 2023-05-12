@@ -162,6 +162,8 @@ auto smux::serial::scan() -> std::map<std::string, port_options>
         auto path = dirent.path().parent_path() / fs::read_symlink(dirent);
         auto device = fs::canonical(path);
 
+        apsn::log::debug("Checking {}", device.string());
+
         auto fd = util::file_descriptor(device.c_str(), O_RDWR | O_NONBLOCK);
         if (!fd) {
             continue;
